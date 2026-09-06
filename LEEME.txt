@@ -1,0 +1,1 @@
+Coloca aquí los archivos descargables (.docx, .xlsx, .pdf). Luego en tools.js pon el nombre en "file" y ready: true.
