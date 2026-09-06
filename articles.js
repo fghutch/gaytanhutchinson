@@ -1,16 +1,33 @@
 /* ============================================================
    ÍNDICE DE ARTÍCULOS · Gaytán Hutchinson
    Única fuente de verdad. La home y el hub /articulos leen de aquí.
-
-   PARA PUBLICAR UN ARTÍCULO:
-   1) Agrega un objeto AL INICIO de la lista (el más reciente va primero).
-   2) Copia articulos/plantilla-articulo.html como articulos/<slug>.html,
-      pon el mismo "slug" y escribe el cuerpo.
-   Con eso, la home y el hub se actualizan solos.
-
    Campos: slug | title | excerpt | category | date "AAAA-MM-DD" | minutes
    ============================================================ */
 window.ARTICLES = [
+  {
+    slug: "nuevo-marco-antilavado-mexico",
+    title: "Los últimos avances de la ley antilavado en México",
+    excerpt: "El régimen antilavado mexicano vive su mayor transformación desde 2013: reforma a la LFPIORPI en 2025, al Reglamento en 2026 y el Acuerdo 115/2026 que entra en noviembre. Qué te obliga ya y qué viene.",
+    category: "Cumplimiento",
+    date: "2026-09-06",
+    minutes: 8
+  },
+  {
+    slug: "12-criterios-sat-plan-maestro",
+    title: "Los 12 criterios del SAT: así decide a quién auditar en 2026",
+    excerpt: "El Plan Maestro SAT 2026 publicó los 12 criterios de riesgo con los que la autoridad decide a quién auditar. Cuáles son, cuáles pesan más y cómo hacer tu autodiagnóstico antes de que llegue una carta.",
+    category: "Fiscal",
+    date: "2026-09-06",
+    minutes: 7
+  },
+  {
+    slug: "49-bis-cff-auditoria-expres",
+    title: "49-Bis del CFF: la auditoría exprés que puede frenar tu facturación",
+    excerpt: "La reforma fiscal 2026 creó la auditoría exprés del artículo 49-Bis: el SAT puede visitar al emisor de facturas, restringir su sello digital de inmediato y dejar sin efectos sus CFDI en días. Qué es y cómo blindarte.",
+    category: "Fiscal",
+    date: "2026-09-05",
+    minutes: 7
+  },
   {
     slug: "valuacion-intangibles-riesgos-fiscales",
     title: "Valuación de intangibles y riesgos fiscales",
@@ -58,31 +75,5 @@ window.ARTICLES = [
     category: "Patrimonial",
     date: "2026-05-08",
     minutes: 6
-  },
-     {
-    slug: "49-bis-cff-auditoria-expres",
-    title: "49-Bis del CFF: la auditoría exprés que puede frenar tu facturación",
-    excerpt: "La reforma fiscal 2026 creó la auditoría exprés del artículo 49-Bis: el SAT puede visitar al emisor de facturas, restringir su sello digital de inmediato y dejar sin efectos sus CFDI en días. Qué es y cómo blindarte.",
-    category: "Fiscal",
-    date: "2026-09-05",
-    minutes: 7
-  },
-
-  {
-    slug: "nuevo-marco-antilavado-mexico",
-    title: "Los últimos avances de la ley antilavado en México",
-    excerpt: "El régimen antilavado mexicano vive su mayor transformación desde 2013: reforma a la LFPIORPI en 2025, al Reglamento en 2026 y el Acuerdo 115/2026 que entra en noviembre. Qué te obliga ya y qué viene.",
-    category: "Cumplimiento",
-    date: "2026-09-06",
-    minutes: 8
-  },
-  {
-    slug: "12-criterios-sat-plan-maestro",
-    title: "Los 12 criterios del SAT: así decide a quién auditar en 2026",
-    excerpt: "El Plan Maestro SAT 2026 publicó los 12 criterios de riesgo con los que la autoridad decide a quién auditar. Cuáles son, cuáles pesan más y cómo hacer tu autodiagnóstico antes de que llegue una carta.",
-    category: "Fiscal",
-    date: "2026-09-06",
-    minutes: 7
-  },
-
+  }
 ];
