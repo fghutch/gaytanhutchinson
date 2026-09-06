@@ -76,4 +76,13 @@ window.ARTICLES = [
     date: "2026-09-06",
     minutes: 8
   },
+  {
+    slug: "12-criterios-sat-plan-maestro",
+    title: "Los 12 criterios del SAT: así decide a quién auditar en 2026",
+    excerpt: "El Plan Maestro SAT 2026 publicó los 12 criterios de riesgo con los que la autoridad decide a quién auditar. Cuáles son, cuáles pesan más y cómo hacer tu autodiagnóstico antes de que llegue una carta.",
+    category: "Fiscal",
+    date: "2026-09-06",
+    minutes: 7
+  },
+
 ];
