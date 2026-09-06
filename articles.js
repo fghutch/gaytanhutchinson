@@ -58,7 +58,7 @@ window.ARTICLES = [
     category: "Patrimonial",
     date: "2026-05-08",
     minutes: 6
-  }
+  },
      {
     slug: "49-bis-cff-auditoria-expres",
     title: "49-Bis del CFF: la auditoría exprés que puede frenar tu facturación",
