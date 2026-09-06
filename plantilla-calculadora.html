@@ -1,10 +1,20 @@
 <!DOCTYPE html>
+<!-- ============================================================
+   PLANTILLA DE CALCULADORA · Gaytán Hutchinson
+   PARA CREAR UNA CALCULADORA:
+   1) Guarda una copia como <slug>.html (mismo slug que en tools.js) y pon ready:true.
+   2) Cambia lo marcado con [corchetes] arriba.
+   3) Ajusta los campos del panel "Tus datos" y los resultados.
+   4) En el <script> de abajo cambia la fórmula en la función calc().
+   El diseño (nav, footer, estilos) ya está listo; solo cambias datos y fórmula.
+============================================================ -->
+
 <html lang="es-MX">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Herramientas · Gaytán Hutchinson</title>
-<meta name="description" content="Calculadoras interactivas y plantillas descargables para valuación, impuestos y finanzas: haz un análisis previo antes de decidir.">
+<title>[Nombre de la calculadora] · Gaytán Hutchinson</title>
+<meta name="description" content="[Descripción breve de la calculadora.]">
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,56 +45,62 @@
   .btn-oro{background:var(--laton);color:#fff}.btn-oro:hover{background:#9d7842}
   .nav-toggle{display:none;background:none;border:0;cursor:pointer;color:var(--tinta);padding:6px}.nav-toggle svg{width:26px;height:26px}
 
-  .head{background:var(--marca-hondo);color:#fff;padding:60px 0 56px}
-  .head .eyebrow{color:var(--laton-claro)}
-  .head h1{font-size:clamp(2.2rem,4.4vw,3.2rem);color:#fff;margin:14px 0 12px}
-  .head p{color:rgba(255,255,255,.78);max-width:62ch}
+  .art-head{padding:46px 0 8px}
+  .crumb{font-family:var(--mono);font-size:.76rem;color:var(--niebla);margin-bottom:22px}
+  .crumb a:hover{color:var(--marca)}
+  .art-head .eyebrow{color:var(--laton)}
+  .art-head h1{font-size:clamp(1.9rem,3.8vw,2.7rem);margin:12px 0 12px;max-width:22ch}
+  .art-head .sub{color:var(--niebla);font-size:1.05rem;max-width:60ch}
 
-  main{padding:56px 0 80px}
-  .grupo{margin-bottom:56px}
-  .grupo-h{display:flex;align-items:center;gap:12px;margin-bottom:22px}
-  .grupo-h .ico{width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--hueso);border:1px solid var(--linea);border-radius:6px;color:var(--marca)}
-  .grupo-h .ico svg{width:20px;height:20px}
-  .grupo-h h2{font-size:1.5rem}
-  .grupo-h span{font-family:var(--mono);font-size:.78rem;color:var(--niebla)}
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .tool{background:var(--papel);border:1px solid var(--linea);border-radius:10px;padding:24px 24px;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s,border-color .2s}
-  .tool:hover{box-shadow:0 16px 40px -26px rgba(26,29,36,.45);transform:translateY(-2px)}
-  .tool .top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
-  .tool h3{font-size:1.2rem;line-height:1.2}
-  .badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:3px;white-space:nowrap;flex:none}
-  .badge.fmt{background:var(--marca-hondo);color:#fff}
-  .badge.soon{background:var(--hueso);color:var(--niebla);border:1px solid var(--linea)}
-  .tool p{font-size:.94rem;color:var(--niebla);margin-bottom:18px;flex:1}
-  .tool .act{margin-top:auto}
-  .tool .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--marca)}
-  .tool .go svg{width:16px;height:16px;transition:transform .2s}
-  .tool:hover .go svg{transform:translateX(3px)}
-  .tool .soon-txt{font-family:var(--mono);font-size:.8rem;color:var(--niebla)}
-  /* email gate */
-  .gate{display:none;margin-top:6px;gap:8px}
-  .gate.open{display:flex;flex-wrap:wrap}
-  .gate input{flex:1;min-width:150px;font-family:var(--sans);font-size:.9rem;padding:10px 12px;border:1px solid var(--linea);border-radius:3px;background:#fff}
-  .gate input:focus{outline:none;border-color:var(--marca);box-shadow:0 0 0 3px rgba(62,88,143,.14)}
-  .gate .btn{padding:10px 14px;font-size:.85rem}
-  .done{display:none;font-size:.86rem;color:var(--marca);font-weight:500;margin-top:8px}
-  .done a{text-decoration:underline}
+  .calc-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px;padding:34px 0 10px;align-items:start}
+  .panel{background:#fff;border:1px solid var(--linea);border-radius:10px;padding:28px}
+  .panel h2{font-size:1.15rem;margin-bottom:20px;font-family:var(--sans);font-weight:600}
+  label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--niebla);margin-bottom:7px}
+  .field{margin-bottom:18px}
+  .money{position:relative}
+  .money span{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--niebla);font-family:var(--mono)}
+  input,select{width:100%;font-family:var(--mono);font-size:1rem;padding:13px 14px;border:1px solid var(--linea);border-radius:3px;background:var(--papel);color:var(--tinta)}
+  .money input{padding-left:30px}
+  select{font-family:var(--sans);cursor:pointer}
+  input:focus,select:focus{outline:none;border-color:var(--marca);box-shadow:0 0 0 3px rgba(62,88,143,.14)}
+  .hint{font-size:.78rem;color:var(--niebla);margin-top:6px}
+
+  .panel.out{background:var(--marca-hondo);color:#fff;border-color:var(--marca-hondo)}
+  .panel.out h2{color:#fff}
+  .res{margin-bottom:20px}
+  .res .k{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+  .res .v{font-family:var(--mono);font-size:1.9rem;font-weight:600;margin-top:6px;line-height:1.05;letter-spacing:-.01em}
+  .res.eq .v{color:var(--laton-claro)}
+  .res .n{font-family:var(--mono);font-size:.8rem;color:rgba(255,255,255,.6);margin-top:6px}
+  .divider{height:1px;background:var(--linea-clara);margin:20px 0}
+  .mult-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.82rem;color:rgba(255,255,255,.8);padding:5px 0}
+  .disc{font-size:.76rem;color:rgba(255,255,255,.6);margin-top:18px;line-height:1.5;border-top:1px solid var(--linea-clara);padding-top:14px}
+
+  .prose{max-width:70ch;padding:44px 0 10px}
+  .prose h2{font-size:1.6rem;margin:8px 0 14px}
+  .prose p{color:#2C2F37;margin-bottom:16px}
+  .prose ol{margin:0 0 16px 20px}.prose li{margin-bottom:8px;color:#2C2F37}
+  .prose strong{font-weight:600;color:var(--tinta)}
+
+  .cta-band{background:var(--marca-mas-hondo);color:#fff;border-radius:10px;padding:32px 30px;margin:30px auto 60px;max-width:70ch;text-align:center}
+  .cta-band h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:#fff;margin-bottom:8px}
+  .cta-band p{color:rgba(255,255,255,.8);margin-bottom:20px}
 
   footer{background:var(--marca-mas-hondo);color:rgba(255,255,255,.7);padding:48px 0 30px}
   .foot-in{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.foot-in img{height:28px}
   .foot-links{display:flex;gap:22px;font-size:.86rem;flex-wrap:wrap}.foot-links a:hover{color:#fff}
   .foot-copy{font-size:.8rem;color:rgba(255,255,255,.5);margin-top:22px;padding-top:20px;border-top:1px solid var(--linea-clara)}
 
+  @media(max-width:820px){.calc-wrap{grid-template-columns:1fr}}
   @media(max-width:760px){
     .nav-links{position:fixed;inset:74px 0 auto 0;background:var(--papel);flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 24px;border-bottom:1px solid var(--linea);transform:translateY(-120%);transition:transform .3s;box-shadow:0 20px 40px -20px rgba(0,0,0,.2)}
     .nav-links.open{transform:none}.nav-links a{width:100%;padding:14px 0;border-bottom:1px solid var(--linea)}.nav-links a:after{display:none}
     .nav-links .btn{margin-top:14px;justify-content:center;border-bottom:0}.nav-toggle{display:block}
-    .cards{grid-template-columns:1fr}
   }
 </style>
 </head>
 <body>
-<a class="skip" href="#tools">Saltar al contenido</a>
+<a class="skip" href="#calc">Saltar al contenido</a>
 
 <header class="nav">
   <div class="env nav-in">
@@ -102,31 +118,77 @@
   </div>
 </header>
 
-<section class="head">
-  <div class="env">
-    <span class="eyebrow">Herramientas</span>
-    <h1>Calculadoras y plantillas</h1>
-    <p>Contamos con diversas hojas de cálculo y referencias que te pueden ayudar a realizar un análisis previo antes de decidir.</p>
+<div class="env art-head">
+  <div class="crumb"><a href="../index.html">Inicio</a> / <a href="index.html">Herramientas</a> / [Nombre]</div>
+  <span class="eyebrow">Calculadora</span>
+  <h1>[Título de la calculadora]</h1>
+  <p class="sub">[Una línea que explique qué estima esta calculadora.]</p>
+</div>
+
+<main id="calc">
+  <div class="env calc-wrap">
+    <div class="panel">
+      <h2>Tus datos</h2>
+      <div class="field">
+        <label for="ebitda">EBITDA anual (MXN)</label>
+        <div class="money"><span>$</span><input type="text" id="ebitda" inputmode="numeric" value="8,000,000"></div>
+        <div class="hint">Utilidad antes de intereses, impuestos, depreciación y amortización.</div>
+      </div>
+      <div class="field">
+        <label for="sector">Sector</label>
+        <select id="sector">
+          <option value="4.0,6.0">Comercio y retail</option>
+          <option value="4.5,6.5" selected>Manufactura</option>
+          <option value="3.5,5.5">Servicios profesionales</option>
+          <option value="6.0,9.0">Tecnología y software</option>
+          <option value="5.0,7.0">Alimentos y bebidas</option>
+          <option value="3.5,5.0">Construcción</option>
+          <option value="5.5,8.0">Salud</option>
+          <option value="4.5,6.5">Logística y transporte</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="deuda">Deuda neta (MXN)</label>
+        <div class="money"><span>$</span><input type="text" id="deuda" inputmode="numeric" value="0"></div>
+        <div class="hint">Deuda con costo menos efectivo. Si no la tienes a la mano, déjala en 0.</div>
+      </div>
+    </div>
+
+    <div class="panel out">
+      <h2>Estimación</h2>
+      <div class="res">
+        <div class="k">Valor de empresa (Enterprise Value)</div>
+        <div class="v" id="ev">$36.0M – $52.0M</div>
+        <div class="n" id="evn">EBITDA × múltiplo del sector</div>
+      </div>
+      <div class="divider"></div>
+      <div class="res eq">
+        <div class="k">Valor del capital (para el accionista)</div>
+        <div class="v" id="eq">$36.0M – $52.0M</div>
+        <div class="n">Valor de empresa − deuda neta</div>
+      </div>
+      <div class="divider"></div>
+      <div class="mult-row"><span>Múltiplo bajo</span><span id="mlo">4.5x</span></div>
+      <div class="mult-row"><span>Múltiplo alto</span><span id="mhi">6.5x</span></div>
+      <div class="disc">Estimación preliminar con fines ilustrativos. No sustituye una valuación formal ni constituye una oferta. Los múltiplos son referenciales y se calibran caso por caso.</div>
+    </div>
   </div>
-</section>
 
-<main id="tools">
-  <div class="env">
-    <div class="grupo">
-      <div class="grupo-h">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg></span>
-        <h2>Calculadoras interactivas</h2>
-      </div>
-      <div class="cards" id="calcs"></div>
-    </div>
+  <div class="env prose">
+    <h2>Cómo se calcula</h2>
+    <p>El método de múltiplos parte de una idea simple: empresas parecidas se venden a factores parecidos. Se toma tu <strong>EBITDA</strong> y se multiplica por el rango al que cotizan negocios comparables de tu sector, para obtener el <strong>valor de empresa</strong> (Enterprise Value).</p>
+    <ol>
+      <li>Valor de empresa = EBITDA × múltiplo del sector (rango bajo y alto).</li>
+      <li>Valor del capital = valor de empresa − deuda neta.</li>
+    </ol>
+    <p>El valor del capital es lo que, en principio, recibiría el accionista: quien compra la empresa asume su deuda, así que esa deuda se resta del valor total. Por eso dos empresas con el mismo EBITDA pueden valer distinto para el dueño según cuánto deban.</p>
+    <p>Los múltiplos aquí son <strong>referenciales</strong>. Una valuación formal ajusta por tamaño, crecimiento, márgenes, concentración de clientes y calidad de la información —factores que mueven el múltiplo dentro y fuera del rango—.</p>
+  </div>
 
-    <div class="grupo">
-      <div class="grupo-h">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
-        <h2>Plantillas descargables</h2>
-      </div>
-      <div class="cards" id="plantillas"></div>
-    </div>
+  <div class="cta-band">
+    <h3>¿Quieres un rango defendible, no solo una estimación?</h3>
+    <p>Agenda un diagnóstico y lo trabajamos con comparables reales y tus estados financieros.</p>
+    <a href="../index.html#contacto" class="btn btn-oro">Agendar diagnóstico</a>
   </div>
 </main>
 
@@ -136,7 +198,7 @@
       <a href="../index.html"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MDguMTAgMTAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0wLjAsNzYuMzYgTDAuMCw5OC4xNCBMMS4zLDk5LjcgTDU4LjQsOTkuNyBMNTkuOTYsOTguMTQgTDU5LjcsOTUuODQgTDIxLjAsNTcuNCBMMTguMTgsNTcuOTIgWiBNOTguMTQsMzkuNzQgTDk1LjMyLDQwLjUyIEw1Ny40LDc4Ljk2IEw1Ny45Miw4MS41MiBMNzYuMzYsOTkuNyBMOTguNCw5OS43IEw5OS43LDk4LjQgTDk5Ljk2LDQxLjgyIFogTTQ4LjgzLDI3LjUzIEwyNy43OSw0OC4zMSBMMjcuNTMsNTAuODcgTDQ4LjMxLDcxLjkgTDUwLjg3LDcyLjE2IEw3Mi4xNiw1MS4xMyBMNzIuNDIsNDkuNjEgTDUxLjksMjguMDUgWiBNMzkuNzQsMS44MiBMNDAuMjYsNC4xMSBMNzguNyw0Mi4yOSBMODEuMjYsNDIuMDMgTDk5LjcsMjMuNTkgTDk5Ljk2LDIuMDggTDk4LjQsMC4wIEw0MS4zLDAuMCBaIE0yMy4zMywwLjAgTDEuNTYsMC4wIEwwLjAsMS4zIEwwLjAsNTguNCBMMS44Miw1OS45NiBMNC4xMSw1OS40NCBMNDIuMjksMjEuMCBMNDIuMDMsMTguNDQgWiIvPjxnIGZpbGw9IiNGRkZGRkYiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEzMC4wMDAsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNMzg4IC0xMlEyMjkgLTEyIDE0MS4wIDczLjVRNTMgMTU5IDUzIDM0M1E1MyA0NjQgOTQuNSA1NDIuNVExMzYgNjIxIDIxNC41IDY1OS41UTI5MyA2OTggNDAzIDY5OFE0NjkgNjk4IDUyNy4wIDY4My4wUTU4NSA2NjggNjI5LjUgNjM3LjVRNjc0IDYwNyA2OTkuMCA1NjEuMFE3MjQgNTE1IDcyNCA0NTJINTkwUTU5MCA0ODUgNTc1LjUgNTEwLjVRNTYxIDUzNiA1MzUuNSA1NTMuNVE1MTAgNTcxIDQ3Ny4wIDU3OS41UTQ0NCA1ODggNDA3IDU4OFEzNTIgNTg4IDMxMC41IDU3My41UTI2OSA1NTkgMjQxLjUgNTI5LjVRMjE0IDUwMCAyMDAuNSA0NTYuMFExODcgNDEyIDE4NyAzNTNWMzMyUTE4NyAyNTEgMjEwLjAgMTk5LjBRMjMzIDE0NyAyNzkuNSAxMjIuNVEzMjYgOTggMzk1IDk4UTQ1NCA5OCA0OTguNSAxMTYuMFE1NDMgMTM0IDU2OC41IDE2OC41UTU5NCAyMDMgNTk0IDI1M1YyNjBIMzc1VjM2OEg3MjRWMEg2MzFMNjIwIDc2UTU5MCA0NiA1NTYuMCAyNi41UTUyMiA3IDQ4MS4wIC0yLjVRNDQwIC0xMiAzODggLTEyWiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzcuNDk3LDcwLjAwMCkgc2NhbGUoMC4wNTgzMDksLTAuMDU4MzA5KSI+PHBhdGggZD0iTTUgMCAyNzIgNjg2SDQzNkw3MDQgMEg1NjNMNTA4IDE0NkgxOTRMMTM5IDBaTTIzNSAyNTZINDY2TDM5NyA0NDJRMzkzIDQ1MiAzODcuNSA0NjcuNVEzODIgNDgzIDM3Ni4wIDUwMS41UTM3MCA1MjAgMzY0LjAgNTM5LjBRMzU4IDU1OCAzNTMgNTczSDM0OFEzNDIgNTUzIDMzMy41IDUyNy4wUTMyNSA1MDEgMzE3LjAgNDc4LjBRMzA5IDQ1NSAzMDQgNDQyWiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMjAuMDM4LDcwLjAwMCkgc2NhbGUoMC4wNTgzMDksLTAuMDU4MzA5KSI+PHBhdGggZD0iTTI3NCAwVjI3OUwxMCA2ODZIMTYwTDM0MSAzOTZIMzQ2TDUyNSA2ODZINjY3TDQwNCAyNzlWMFoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjYwLjcxNCw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik0yNDQgMFY1NzRIMjVWNjg2SDU5NFY1NzRIMzc0VjBaIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI5OC4wMDcsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNNSAwIDI3MiA2ODZINDM2TDcwNCAwSDU2M0w1MDggMTQ2SDE5NEwxMzkgMFpNMjM1IDI1Nkg0NjZMMzk3IDQ0MlEzOTMgNDUyIDM4Ny41IDQ2Ny41UTM4MiA0ODMgMzc2LjAgNTAxLjVRMzcwIDUyMCAzNjQuMCA1MzkuMFEzNTggNTU4IDM1MyA1NzNIMzQ4UTM0MiA1NTMgMzMzLjUgNTI3LjBRMzI1IDUwMSAzMTcuMCA0NzguMFEzMDkgNDU1IDMwNCA0NDJaTTI5NyA3MzYgMzc4IDg2OEg1MTBMNTExIDg2NUw0MDMgNzM2WiIvPjwvZz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNDAuNTQ4LDcwLjAwMCkgc2NhbGUoMC4wNTgzMDksLTAuMDU4MzA5KSI+PHBhdGggZD0iTTc2IDBWNjg2SDIwMEw0OTMgMjgxUTQ5OCAyNzUgNTA1LjAgMjY0LjVRNTEyIDI1NCA1MTguMCAyNDQuMFE1MjQgMjM0IDUyNiAyMjhINTMxUTUzMSAyNDIgNTMxLjAgMjU1LjBRNTMxIDI2OCA1MzEgMjgxVjY4Nkg2NTZWMEg1MzNMMjM5IDQwOFEyMzEgNDIwIDIyMC41IDQzNy41UTIxMCA0NTUgMjA2IDQ2MkgyMDFRMjAxIDQ0OSAyMDEuMCA0MzUuNVEyMDEgNDIyIDIwMSA0MDhWMFoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDAyLjA5Miw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik03NiAwVjY4NkgyMDZWNDA3SDUyNlY2ODZINjU2VjBINTI2VjI5NUgyMDZWMFoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDQ1Ljk3NCw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik0zNjEgLTEyUTI3MSAtMTIgMjA2LjAgMTcuMFExNDEgNDYgMTA2LjUgMTA1LjVRNzIgMTY1IDcyIDI1NFY2ODZIMjAyVjI1OFEyMDIgMTc5IDI0My41IDEzOC41UTI4NSA5OCAzNjEgOThRNDM3IDk4IDQ3OS41IDEzOC41UTUyMiAxNzkgNTIyIDI1OFY2ODZINjUyVjI1NFE2NTIgMTY1IDYxNy4wIDEwNS41UTU4MiA0NiA1MTcuMCAxNy4wUTQ1MiAtMTIgMzYxIC0xMloiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDg5LjM5MCw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik0yNDQgMFY1NzRIMjVWNjg2SDU5NFY1NzRIMzc0VjBaIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUyNi42ODMsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNMzc4IC0xMlEyNzMgLTEyIDE5OC41IDI1LjBRMTI0IDYyIDg0LjUgMTQwLjVRNDUgMjE5IDQ1IDM0M1E0NSA1MjQgMTMzLjAgNjExLjBRMjIxIDY5OCAzNzggNjk4UTQ2MyA2OTggNTMxLjUgNjY5LjBRNjAwIDY0MCA2NDAuNSA1ODEuNVE2ODEgNTIzIDY4MSA0MzNINTQ4UTU0OCA0ODMgNTI2LjUgNTE3LjVRNTA1IDU1MiA0NjcuMCA1NzAuMFE0MjkgNTg4IDM4MCA1ODhRMzEyIDU4OCAyNjcuMCA1NjEuNVEyMjIgNTM1IDIwMC41IDQ4My4wUTE3OSA0MzEgMTc5IDM1NFYzMzJRMTc5IDI1NCAyMDAuNSAyMDIuMFEyMjIgMTUwIDI2Ni41IDEyNC4wUTMxMSA5OCAzODAgOThRNDMyIDk4IDQ3MS4wIDExNS41UTUxMCAxMzMgNTMxLjUgMTY3LjVRNTUzIDIwMiA1NTMgMjUySDY4MVE2ODEgMTYyIDY0MS4wIDEwMy41UTYwMSA0NSA1MzIuNSAxNi41UTQ2NCAtMTIgMzc4IC0xMloiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTY5LjkyNCw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik03NiAwVjY4NkgyMDZWNDA3SDUyNlY2ODZINjU2VjBINTI2VjI5NUgyMDZWMFoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjEzLjgwNiw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik03NiAwVjY4NkgyMDZWMFoiLz48L2c+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjMxLjQ1MCw3MC4wMDApIHNjYWxlKDAuMDU4MzA5LC0wLjA1ODMwOSkiPjxwYXRoIGQ9Ik03NiAwVjY4NkgyMDBMNDkzIDI4MVE0OTggMjc1IDUwNS4wIDI2NC41UTUxMiAyNTQgNTE4LjAgMjQ0LjBRNTI0IDIzNCA1MjYgMjI4SDUzMVE1MzEgMjQyIDUzMS4wIDI1NS4wUTUzMSAyNjggNTMxIDI4MVY2ODZINjU2VjBINTMzTDIzOSA0MDhRMjMxIDQyMCAyMjAuNSA0MzcuNVEyMTAgNDU1IDIwNiA0NjJIMjAxUTIwMSA0NDkgMjAxLjAgNDM1LjVRMjAxIDQyMiAyMDEgNDA4VjBaIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY3NS4zMzIsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNMzMyIC0xMlEyNzUgLTEyIDIyMy4wIDAuNVExNzEgMTMgMTMxLjAgMzkuNVE5MSA2NiA2OC4wIDEwNS41UTQ1IDE0NSA0NSAxOTlRNDUgMjA1IDQ1LjUgMjExLjBRNDYgMjE3IDQ2IDIyMEgxNzdRMTc3IDIxOCAxNzYuNSAyMTIuNVExNzYgMjA3IDE3NiAyMDNRMTc2IDE3MCAxOTUuMCAxNDYuNVEyMTQgMTIzIDI1MC4wIDExMC41UTI4NiA5OCAzMzUgOThRMzY4IDk4IDM5My41IDEwMi4wUTQxOSAxMDYgNDM3LjUgMTEzLjVRNDU2IDEyMSA0NjguMCAxMzEuNVE0ODAgMTQyIDQ4NS41IDE1NS4wUTQ5MSAxNjggNDkxIDE4M1E0OTEgMjEyIDQ3My4wIDIzMS4wUTQ1NSAyNTAgNDI0LjUgMjYzLjBRMzk0IDI3NiAzNTUuNSAyODYuNVEzMTcgMjk3IDI3Ni41IDMwOC4wUTIzNiAzMTkgMTk3LjUgMzM0LjVRMTU5IDM1MCAxMjguNSAzNzIuMFE5OCAzOTQgODAuMCA0MjcuNVE2MiA0NjEgNjIgNTA4UTYyIDU1NiA4Mi41IDU5Mi4wUTEwMyA2MjggMTQwLjUgNjUxLjVRMTc4IDY3NSAyMjguMCA2ODYuNVEyNzggNjk4IDMzNyA2OThRMzkyIDY5OCA0NDAuNSA2ODYuNVE0ODkgNjc1IDUyNi4wIDY1MC41UTU2MyA2MjYgNTg0LjAgNTg4LjVRNjA1IDU1MSA2MDUgNDk5VjQ4N0g0NzZWNDk3UTQ3NiA1MjYgNDU4LjUgNTQ2LjBRNDQxIDU2NiA0MDkuNSA1NzcuMFEzNzggNTg4IDMzNiA1ODhRMjkxIDU4OCAyNTkuMCA1NzkuNVEyMjcgNTcxIDIxMC4wIDU1NC41UTE5MyA1MzggMTkzIDUxNFExOTMgNDg5IDIxMS4wIDQ3Mi4wUTIyOSA0NTUgMjU5LjUgNDQzLjBRMjkwIDQzMSAzMjguNSA0MjEuMFEzNjcgNDExIDQwNy41IDM5OS41UTQ0OCAzODggNDg2LjUgMzczLjBRNTI1IDM1OCA1NTUuNSAzMzUuNVE1ODYgMzEzIDYwNC4wIDI4MC4wUTYyMiAyNDcgNjIyIDIwMVE2MjIgMTI0IDU4NC41IDc3LjBRNTQ3IDMwIDQ4MS41IDkuMFE0MTYgLTEyIDMzMiAtMTJaIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDcxNS40MjQsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNMzkxIC0xMlEyODQgLTEyIDIwNi4wIDI2LjVRMTI4IDY1IDg2LjUgMTQ0LjBRNDUgMjIzIDQ1IDM0M1E0NSA0NjQgODYuNSA1NDIuNVExMjggNjIxIDIwNi4wIDY1OS41UTI4NCA2OTggMzkxIDY5OFE0OTkgNjk4IDU3Ni41IDY1OS41UTY1NCA2MjEgNjk1LjUgNTQyLjVRNzM3IDQ2NCA3MzcgMzQzUTczNyAyMjMgNjk1LjUgMTQ0LjBRNjU0IDY1IDU3Ni41IDI2LjVRNDk5IC0xMiAzOTEgLTEyWk0zOTEgOThRNDQzIDk4IDQ4Mi41IDExMy4wUTUyMiAxMjggNTQ5LjAgMTU3LjVRNTc2IDE4NyA1OTAuMCAyMzAuNVE2MDQgMjc0IDYwNCAzMzFWMzUzUTYwNCA0MTEgNTkwLjAgNDU1LjBRNTc2IDQ5OSA1NDkuMCA1MjguNVE1MjIgNTU4IDQ4Mi41IDU3My4wUTQ0MyA1ODggMzkxIDU4OFEzMzkgNTg4IDI5OS41IDU3My4wUTI2MCA1NTggMjMzLjAgNTI4LjVRMjA2IDQ5OSAxOTIuNSA0NTUuMFExNzkgNDExIDE3OSAzNTNWMzMxUTE3OSAyNzQgMTkyLjUgMjMwLjVRMjA2IDE4NyAyMzMuMCAxNTcuNVEyNjAgMTI4IDI5OS41IDExMy4wUTMzOSA5OCAzOTEgOThaIi8+PC9nPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDc2Mi4yMjIsNzAuMDAwKSBzY2FsZSgwLjA1ODMwOSwtMC4wNTgzMDkpIj48cGF0aCBkPSJNNzYgMFY2ODZIMjAwTDQ5MyAyODFRNDk4IDI3NSA1MDUuMCAyNjQuNVE1MTIgMjU0IDUxOC4wIDI0NC4wUTUyNCAyMzQgNTI2IDIyOEg1MzFRNTMxIDI0MiA1MzEuMCAyNTUuMFE1MzEgMjY4IDUzMSAyODFWNjg2SDY1NlYwSDUzM0wyMzkgNDA4UTIzMSA0MjAgMjIwLjUgNDM3LjVRMjEwIDQ1NSAyMDYgNDYySDIwMVEyMDEgNDQ5IDIwMS4wIDQzNS41UTIwMSA0MjIgMjAxIDQwOFYwWiIvPjwvZz48L2c+PC9zdmc+" alt="Gaytán Hutchinson"></a>
       <div class="foot-links">
         <a href="../index.html">Inicio</a>
-        <a href="../articulos/index.html">Artículos</a>
+        <a href="index.html">Herramientas</a>
         <a href="../index.html#contacto">Contacto</a>
         <a href="../privacidad.html">Aviso de privacidad</a>
       </div>
@@ -145,64 +207,30 @@
   </div>
 </footer>
 
-<script src="../tools.js"></script>
 <script>
   var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
   toggle.addEventListener('click',function(){var o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
 
-  // Cambia por tu endpoint real de Formspree para capturar los correos:
-  var FORM_ENDPOINT="https://formspree.io/f/TU_ID_AQUI";
-  var arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  var dl='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>';
-
-  var TOOLS=window.TOOLS||[];
-  function esc(s){return s.replace(/"/g,'&quot;');}
-
-  // Calculadoras
-  var calcBox=document.getElementById('calcs');
-  calcBox.innerHTML=TOOLS.filter(function(t){return t.type==='calculadora';}).map(function(t){
-    var act = t.ready
-      ? '<a class="go" href="'+t.slug+'.html">'+(t.cta||'Abrir')+' '+arrow+'</a>'
-      : '<span class="soon-txt">Próximamente</span>';
-    var badge = t.ready ? '' : '<span class="badge soon">Pronto</span>';
-    return '<div class="tool"><div class="top"><h3>'+t.title+'</h3>'+badge+'</div>'
-      +'<p>'+t.description+'</p><div class="act">'+act+'</div></div>';
-  }).join('');
-
-  // Plantillas (con captura de correo)
-  var plBox=document.getElementById('plantillas');
-  plBox.innerHTML=TOOLS.filter(function(t){return t.type==='plantilla';}).map(function(t,i){
-    var badge='<span class="badge '+(t.ready?'fmt':'soon')+'">'+(t.ready?(t.format||'Archivo'):'Pronto')+'</span>';
-    var act = t.ready
-      ? '<a class="go" href="#" data-gate="'+i+'">Descargar '+dl+'</a>'
-        +'<div class="gate" id="gate'+i+'"><input type="email" placeholder="tu@correo.com" aria-label="Tu correo"><button class="btn btn-oro" data-send="'+i+'" data-file="'+esc(t.file||'')+'">Recibir</button></div>'
-        +'<div class="done" id="done'+i+'"></div>'
-      : '<span class="soon-txt">Próximamente</span>';
-    return '<div class="tool"><div class="top"><h3>'+t.title+'</h3>'+badge+'</div>'
-      +'<p>'+t.description+'</p><div class="act">'+act+'</div></div>';
-  }).join('');
-
-  // toggle email gate
-  plBox.addEventListener('click',function(e){
-    var g=e.target.closest('[data-gate]');
-    if(g){e.preventDefault();document.getElementById('gate'+g.getAttribute('data-gate')).classList.toggle('open');return;}
-    var s=e.target.closest('[data-send]');
-    if(s){
-      e.preventDefault();
-      var i=s.getAttribute('data-send'), file=s.getAttribute('data-file');
-      var input=document.querySelector('#gate'+i+' input'), done=document.getElementById('done'+i);
-      if(!input.value||input.value.indexOf('@')<0){input.focus();return;}
-      var url='../formatos/'+file;
-      function reveal(){
-        document.getElementById('gate'+i).classList.remove('open');
-        done.innerHTML='Listo. <a href="'+url+'" download>Descargar ahora</a>';
-        done.style.display='block';
-      }
-      if(FORM_ENDPOINT.indexOf('TU_ID_AQUI')>=0){reveal();return;}
-      var fd=new FormData();fd.append('email',input.value);fd.append('plantilla',file);
-      fetch(FORM_ENDPOINT,{method:'POST',body:fd,headers:{'Accept':'application/json'}}).then(reveal).catch(reveal);
-    }
-  });
+  var ebitda=document.getElementById('ebitda'),sector=document.getElementById('sector'),deuda=document.getElementById('deuda');
+  var evEl=document.getElementById('ev'),eqEl=document.getElementById('eq'),mlo=document.getElementById('mlo'),mhi=document.getElementById('mhi');
+  function fmt(n){
+    var neg=n<0; n=Math.abs(n); var s;
+    if(n>=1e9)s=(n/1e9).toFixed(1)+'B'; else if(n>=1e6)s=(n/1e6).toFixed(1)+'M'; else if(n>=1e3)s=(n/1e3).toFixed(0)+'k'; else s=Math.round(n).toString();
+    return (neg?'-$':'$')+s;
+  }
+  function num(el){return parseFloat(el.value.replace(/[^0-9.]/g,''))||0;}
+  function group(el){var v=el.value.replace(/[^0-9]/g,'');el.value=v?Number(v).toLocaleString('en-US'):'';}
+  function calc(){
+    // ==== AJUSTA AQUÍ LA FÓRMULA DE TU CALCULADORA ====
+    var e=num(ebitda), d=num(deuda), p=sector.value.split(',').map(Number), lo=p[0], hi=p[1];
+    var evLo=e*lo, evHi=e*hi;
+    evEl.textContent=fmt(evLo)+' – '+fmt(evHi);
+    eqEl.textContent=fmt(evLo-d)+' – '+fmt(evHi-d);
+    mlo.textContent=lo.toFixed(1)+'x'; mhi.textContent=hi.toFixed(1)+'x';
+  }
+  [ebitda,deuda].forEach(function(el){el.addEventListener('input',function(){group(el);calc();});});
+  sector.addEventListener('change',calc);
+  calc();
 </script>
 </body>
 </html>
