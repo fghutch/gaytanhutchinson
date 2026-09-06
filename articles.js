@@ -4,7 +4,16 @@
    Campos: slug | title | excerpt | category | date "AAAA-MM-DD" | minutes
    ============================================================ */
 window.ARTICLES = [
-    {
+     {
+    slug: "reforma-lfpca-2026",
+    title: "Los cambios en la LFPCA para 2026: plazos más cortos y justicia digital",
+    excerpt: "La reforma a la LFPCA de junio de 2026 cambia el juicio de nulidad ante el TFJA: plazos obligatorios al Tribunal, reconducción de vía, justicia en línea y suspensión más accesible. Qué significa para tu defensa.",
+    category: "Legal",
+    date: "2026-09-06",
+    minutes: 7
+  }, 
+   
+   {
     slug: "articulo-74-vs-70a-cff",
     title: "Artículo 74 vs. 70-A del CFF: dos caminos para reducir una multa",
     excerpt: "El artículo 74 y el 70-A del CFF permiten reducir multas del SAT hasta el 100%, pero funcionan distinto: uno es discrecional y el otro reglado. Cuál te conviene según tu caso.",
