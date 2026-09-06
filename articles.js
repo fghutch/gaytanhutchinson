@@ -67,4 +67,13 @@ window.ARTICLES = [
     date: "2026-09-05",
     minutes: 7
   },
+
+  {
+    slug: "nuevo-marco-antilavado-mexico",
+    title: "Los últimos avances de la ley antilavado en México",
+    excerpt: "El régimen antilavado mexicano vive su mayor transformación desde 2013: reforma a la LFPIORPI en 2025, al Reglamento en 2026 y el Acuerdo 115/2026 que entra en noviembre. Qué te obliga ya y qué viene.",
+    category: "Cumplimiento",
+    date: "2026-09-06",
+    minutes: 8
+  },
 ];
