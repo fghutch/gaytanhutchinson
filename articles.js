@@ -59,4 +59,12 @@ window.ARTICLES = [
     date: "2026-05-08",
     minutes: 6
   }
+     {
+    slug: "49-bis-cff-auditoria-expres",
+    title: "49-Bis del CFF: la auditoría exprés que puede frenar tu facturación",
+    excerpt: "La reforma fiscal 2026 creó la auditoría exprés del artículo 49-Bis: el SAT puede visitar al emisor de facturas, restringir su sello digital de inmediato y dejar sin efectos sus CFDI en días. Qué es y cómo blindarte.",
+    category: "Fiscal",
+    date: "2026-09-05",
+    minutes: 7
+  },
 ];
