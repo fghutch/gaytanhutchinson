@@ -58,10 +58,12 @@
   .nav-toggle{display:none;background:none;border:0;cursor:pointer;color:var(--tinta);padding:6px}
   .nav-toggle svg{width:26px;height:26px}
 
-  /* HERO */
-  .hero{background:var(--marca-mas-hondo);color:#fff;position:relative;overflow:hidden}
-  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 88% -10%,rgba(126,147,190,.22),transparent 60%);pointer-events:none}
-  .hero .inner{position:relative;padding:92px 0 96px;max-width:760px}
+  /* HERO con foto (la foto se toma de la página principal) */
+  .hero{background:var(--marca-mas-hondo);color:#fff;position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center}
+  .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center right}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(95deg,rgba(26,39,64,.97) 0%,rgba(26,39,64,.9) 30%,rgba(26,39,64,.5) 60%,rgba(26,39,64,.12) 100%)}
+  .hero > .env{position:relative;z-index:2;width:100%}
+  .hero .inner{position:relative;padding:84px 0 88px;max-width:640px}
   .hero h1{font-size:clamp(2.4rem,5vw,3.9rem);color:#fff;margin:22px 0 0}
   .hero h1 em{font-style:italic;color:var(--laton-claro)}
   .hero .sub{font-size:1.15rem;color:rgba(255,255,255,.84);margin-top:24px;max-width:52ch;line-height:1.65}
@@ -194,6 +196,8 @@
     section{padding:60px 0}
     .pk-grid,.net-grid,.why,.how-grid{grid-template-columns:1fr}
     .hero .inner{padding:64px 0 70px}
+    .hero{min-height:0}
+    .hero .scrim{background:linear-gradient(180deg,rgba(26,39,64,.75),rgba(26,39,64,.94))}
   }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.rv{opacity:1;transform:none;transition:none}}
 </style>
@@ -224,6 +228,8 @@
 <main id="main">
 
 <section class="hero" style="padding:0">
+  <div class="bg js-hero-bg"></div>
+  <div class="scrim"></div>
   <div class="env">
     <div class="inner">
       <span class="eyebrow claro">Mexico Business Landing · Monterrey</span>
@@ -489,7 +495,10 @@
   (function(){
     fetch('/').then(function(r){return r.text()}).then(function(html){
       var d=new DOMParser().parseFromString(html,'text/html');
-      var logo=d.querySelector('.brand img'), foto=d.querySelector('.avatar img');
+      var logo=d.querySelector('.brand img'), foto=d.querySelector('.avatar img'), heroBg=d.querySelector('.hero-foto .bg');
+      if(heroBg&&heroBg.style&&heroBg.style.backgroundImage){
+        document.querySelectorAll('.js-hero-bg').forEach(function(b){b.style.backgroundImage=heroBg.style.backgroundImage;});
+      }
       if(logo&&logo.getAttribute('src')){
         document.querySelectorAll('.js-logo').forEach(function(i){i.src=logo.getAttribute('src');i.hidden=false;});
         document.querySelectorAll('.js-logo-text').forEach(function(s){s.hidden=true;});
