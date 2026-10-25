@@ -272,7 +272,7 @@
     $("#out").innerHTML=h;
   }
   function strip(r,mio,berry){
-    var v=r.v, lo=v[Math.floor(v.length*0.03)], hi=v[Math.min(v.length-1,Math.ceil(v.length*0.97)-1)];
+    var v=r.v, iqr=r.q3-r.q1, lo=Math.max(v[0],r.q1-1.5*iqr), hi=Math.min(v[v.length-1],r.q3+1.5*iqr);
     if(mio!=null){lo=Math.min(lo,mio);hi=Math.max(hi,mio);}
     var pad=(hi-lo)*0.06||0.01; lo-=pad; hi+=pad;
     var W=600,H=96,L=10,R=590, x=function(z){return L+(R-L)*(Math.max(lo,Math.min(hi,z))-lo)/(hi-lo);};
