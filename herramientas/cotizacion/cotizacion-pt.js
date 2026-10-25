@@ -16,7 +16,6 @@
   var CONDICIONES = {
     ciudad: "Monterrey N.L.",
     anticipoPct: 0.5,
-    tarifaHora: 1600,          // horas adicionales, pesos + IVA
     vigenciaDias: 30,
     firmante: "Francisco Gaytán",
     cargo: "Socio"
@@ -76,7 +75,7 @@
     pg.drawText("ESTUDIO DE PRECIOS DE TRANSFERENCIA", { x: 31, y: y - 8, size: 11, font: DMB, color: rgb(AZUL) });
     pg.drawText("EJERCICIO FISCAL " + ejercicio, { x: 31, y: y - 24, size: 11, font: DMR, color: rgb(AZUL) });
     // Título en la franja azul
-    ["Cotización Servicios", "Profesionales.", fecha].forEach(function (t, i) {
+    ["Propuesta de Servicios", "Profesionales.", fecha].forEach(function (t, i) {
       pg.drawText(t, { x: 173, y: 206 - i * 30, size: 24, font: DMB, color: P.rgb(1, 1, 1) });
     });
     // Datos de contacto (donde iba la dirección)
@@ -211,23 +210,11 @@
       "Sesión de presentación de resultados."
     ]);
 
-    var q = d.quote, iva = function (n) { return n * 0.16; };
-    titulo("III. HONORARIOS.");
-    para("Los honorarios para la elaboración de este estudio ascienden a **" + moneyInt(q.total) + " pesos + IVA**, conforme a lo siguiente:", { after: 8 });
-    var rowsH = q.lineas.map(function (l) { return { cells: [l.t + (l.nota ? " (adicional)" : ""), money(l.imp), money(iva(l.imp))] }; });
-    if (q.desc) rowsH.push({ cells: ["Descuento por estudio de ejercicios anteriores", "-" + money(q.desc), "-" + money(iva(q.desc))] });
-    rowsH.push({ cells: ["Total", money(q.total), money(iva(q.total))], total: true });
-    rowsH.push({ cells: ["Total a pagar (IVA incluido)", money(q.total * 1.16), ""], total: true });
-    tabla([{ t: "Concepto", w: 0.54 }, { t: "Honorarios", w: 0.23, right: true }, { t: "IVA 16%", w: 0.23, right: true }], rowsH);
-    para("La forma de pago será la siguiente:", { after: 8 });
-    var a = q.total * CONDICIONES.anticipoPct, f = q.total - a;
-    tabla([{ t: "Exhibición", w: 0.54 }, { t: "Honorarios", w: 0.23, right: true }, { t: "Total con IVA", w: 0.23, right: true }], [
-      { cells: ["Anticipo (" + Math.round(CONDICIONES.anticipoPct * 100) + "%), a la aceptación de la propuesta", money(a), money(a * 1.16)] },
-      { cells: ["Finiquito (" + Math.round((1 - CONDICIONES.anticipoPct) * 100) + "%), contra la entrega del estudio", money(f), money(f * 1.16)] },
-      { cells: ["Total", money(q.total), money(q.total * 1.16)], total: true }
-    ]);
-    para("En caso de que el alcance descrito requiera un esfuerzo mayor al estimado, las horas adicionales se facturarán a una tarifa preferencial de **" + moneyInt(CONDICIONES.tarifaHora) + " pesos + IVA por hora**, previa autorización por escrito de El Cliente. No se devengarán horas adicionales sin dicha autorización.");
-    para("La cotización no incluye viáticos, gastos asociados con papelería, mensajería, impresión de documentos, la presentación de la declaración informativa de operaciones con partes relacionadas, la atención a revisiones de la autoridad, litigio y derivados, así como ningún otro servicio o concepto que no sea mencionado dentro del Objetivo y Alcance de los servicios.", { after: 14 });
+    titulo("III. HONORARIOS Y FORMA DE PAGO.");
+    para("Los honorarios del estudio son de **precio fijo** y se determinan con base en el número, el monto y la complejidad de las operaciones descritas en el Objetivo y Alcance. Se los haremos llegar por escrito en un plazo máximo de un día hábil, una vez revisada la información de El Cliente.");
+    para("La forma de pago será un **anticipo del " + Math.round(CONDICIONES.anticipoPct * 100) + "%** a la aceptación de los honorarios y un **finiquito del " + Math.round((1 - CONDICIONES.anticipoPct) * 100) + "%** contra la entrega del estudio. Los honorarios causan el Impuesto al Valor Agregado.");
+    para("En caso de que el alcance descrito requiera un esfuerzo mayor al estimado, el trabajo adicional se cotizará previamente y requerirá la autorización por escrito de El Cliente.");
+    para("Los honorarios no incluyen viáticos, gastos asociados con papelería, mensajería, impresión de documentos, la presentación de la declaración informativa de operaciones con partes relacionadas, la atención a revisiones de la autoridad, litigio y derivados, así como ningún otro servicio o concepto que no sea mencionado dentro del Objetivo y Alcance de los servicios.", { after: 14 });
 
     titulo("IV. RESPONSABILIDADES DE EL CLIENTE.");
     bullets([
@@ -236,7 +223,7 @@
       "Revisar y validar el borrador del estudio dentro de los plazos acordados."
     ]);
     titulo("V. VIGENCIA.");
-    para("La presente propuesta tendrá una vigencia de " + CONDICIONES.vigenciaDias + " días naturales contados a partir de la fecha de su emisión. Fue generada en línea con base en la información proporcionada en el diagnóstico; los honorarios se confirman al revisar la información de El Cliente.");
+    para("La presente propuesta tendrá una vigencia de " + CONDICIONES.vigenciaDias + " días naturales contados a partir de la fecha de su emisión. Fue generada en línea con base en la información proporcionada en el diagnóstico.");
     para("Agradeciendo de antemano su atención, quedamos atentos a cualquier comentario. Será un gusto colaborar con usted.", { after: 16 });
 
     // Bloque de firma y aceptación
@@ -245,7 +232,7 @@
     page.drawImage(imgFirma, { x: L + 60, y: top - fh - 10, width: fw, height: fh });
     var ax = 385, ay = top - 4;
     page.drawText("Aceptación de conformidad:", { x: ax, y: ay - 10, size: 10, font: HB });
-    var txtA = "MANIFIESTO QUE HE LEÍDO LOS TÉRMINOS Y LAS CONDICIONES DE ESTA PROPUESTA DE TRABAJO Y DE HONORARIOS QUE ANTECEDE Y MANIFIESTO Y GARANTIZO QUE CUENTO CON AUTORIDAD SUFICIENTE PARA SUSCRIBIR LA PRESENTE EN NOMBRE Y REPRESENTACIÓN DE **" + empresa.toUpperCase() + "**" + (/\.$/.test(empresa) ? "" : ".");
+    var txtA = "MANIFIESTO QUE HE LEÍDO LOS TÉRMINOS Y LAS CONDICIONES DE ESTA PROPUESTA DE TRABAJO QUE ANTECEDE Y MANIFIESTO Y GARANTIZO QUE CUENTO CON AUTORIDAD SUFICIENTE PARA SUSCRIBIR LA PRESENTE EN NOMBRE Y REPRESENTACIÓN DE **" + empresa.toUpperCase() + "**" + (/\.$/.test(empresa) ? "" : ".");
     var saveL = L, saveTW = TW; L = ax; TW = R - ax; cursor = ay - 18; para(txtA, { size: 8.4, lh: 11.5, after: 10 });
     ["Nombre:", "Puesto:", "Firma:", "Fecha:"].forEach(function (t) {
       page.drawText(t, { x: ax, y: cursor - 10, size: 9.5, font: H });
@@ -257,10 +244,10 @@
     /* ---------- Páginas institucionales ---------- */
     copied.slice(1).forEach(function (p) { doc.addPage(p); });
 
-    doc.setTitle("Cotización estudio de precios de transferencia · " + empresa);
+    doc.setTitle("Propuesta estudio de precios de transferencia · " + empresa);
     doc.setAuthor("Gaytán Hutchinson"); doc.setSubject("Folio " + folio); doc.setCreator("gaytanhutchinson.com");
     var out = await doc.save();
-    return { bytes: out, folio: folio, nombreArchivo: "Cotizacion_PT_" + empresa.replace(/[^A-Za-z0-9áéíóúñÁÉÍÓÚÑ]+/g, "_").replace(/^_|_$/g, "").slice(0, 60) + ".pdf" };
+    return { bytes: out, folio: folio, nombreArchivo: "Propuesta_PT_" + empresa.replace(/[^A-Za-z0-9áéíóúñÁÉÍÓÚÑ]+/g, "_").replace(/^_|_$/g, "").slice(0, 60) + ".pdf" };
   }
 
   window.generarCotizacionPT = async function (d) {

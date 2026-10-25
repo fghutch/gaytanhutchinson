@@ -24,7 +24,7 @@ window.TOOLS = [
     slug: "precios-de-transferencia",
     type: "calculadora",
     title: "Diagnóstico de precios de transferencia",
-    description: "Sabe si necesitas estudio, qué método aplicaría y cuánto cuesta, con precio fijo.",
+    description: "Sabe si necesitas estudio, qué método aplicaría y descarga una propuesta a nombre de tu empresa.",
     cta: "Hacer diagnóstico",
     ready: true
   },
