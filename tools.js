@@ -21,6 +21,14 @@
    ============================================================ */
 window.TOOLS = [
   {
+    slug: "precios-de-transferencia",
+    type: "calculadora",
+    title: "Diagnóstico de precios de transferencia",
+    description: "Sabe si necesitas estudio, qué método aplicaría y cuánto cuesta, con precio fijo.",
+    cta: "Hacer diagnóstico",
+    ready: true
+  },
+  {
     slug: "valuacion-multiplos",
     type: "calculadora",
     title: "Valuación por múltiplos de EBITDA",

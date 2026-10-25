@@ -113,6 +113,7 @@
   .calc-out .k{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.65)}
   .calc-out .v{font-family:var(--mono);font-size:1.85rem;font-weight:600;margin-top:6px;line-height:1.05;letter-spacing:-.01em}
   .calc-out .mult{font-size:.8rem;color:var(--laton-claro);font-family:var(--mono);margin-top:8px}
+  .calc-out .v.txt{font-family:var(--serif);font-weight:500;font-size:1.45rem;line-height:1.2;letter-spacing:0}
   .calc-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;flex-wrap:wrap}
   .calc-foot small{font-size:.72rem;color:var(--niebla);line-height:1.4;max-width:52%}
   .calc-foot .btn{padding:10px 16px;font-size:.86rem}
@@ -359,40 +360,43 @@
 <section class="calc-band">
   <div class="env">
     <div class="cb-copy">
-      <h2>Empieza por saber cuánto vale tu empresa</h2>
-      <p>Un primer rango en segundos, con múltiplos de EBITDA por sector.</p>
+      <span class="eyebrow">Precios de transferencia</span>
+      <h2 style="margin-top:12px">¿Tu empresa necesita estudio de precios de transferencia?</h2>
+      <p>Si operas con empresas de tu grupo o con tus socios, probablemente sí. Averígualo en 3 minutos y conoce el precio fijo del estudio.</p>
+      <p style="margin-top:18px"><a href="herramientas/precios-de-transferencia.html" style="color:var(--marca);font-weight:600;border-bottom:1px solid currentColor">Ver diagnóstico completo y estudio de muestra</a></p>
     </div>
     <div class="calc rv">
       <div class="calc-head">
-        <span class="tag">Estimación</span>
+        <span class="tag">Diagnóstico</span>
       </div>
-      <h3>¿Cuánto vale tu empresa?</h3>
-      <p class="hint">Un primer rango en 15 segundos, con múltiplos de EBITDA por sector.</p>
+      <h3>Revisión rápida</h3>
+      <p class="hint">Dos preguntas para saber si te aplica la obligación.</p>
       <div class="field">
-        <label for="ebitda">EBITDA anual (MXN)</label>
-        <div class="money"><span>$</span><input type="text" id="ebitda" inputmode="numeric" placeholder="8,000,000" value="8,000,000"></div>
+        <label for="pt-ing">Ingresos del ejercicio anterior</label>
+        <select id="pt-ing">
+          <option value="1">Hasta $13 millones</option>
+          <option value="2" selected>$13 a $100 millones</option>
+          <option value="3">$100 a $500 millones</option>
+          <option value="4">$500 a $1,000 millones</option>
+          <option value="5">Más de $1,000 millones</option>
+        </select>
       </div>
       <div class="field">
-        <label for="sector">Sector</label>
-        <select id="sector">
-          <option value="4.0,6.0">Comercio y retail</option>
-          <option value="4.5,6.5" selected>Manufactura</option>
-          <option value="3.5,5.5">Servicios profesionales</option>
-          <option value="6.0,9.0">Tecnología y software</option>
-          <option value="5.0,7.0">Alimentos y bebidas</option>
-          <option value="3.5,5.0">Construcción</option>
-          <option value="5.5,8.0">Salud</option>
-          <option value="4.5,6.5">Logística y transporte</option>
+        <label for="pt-pr">¿Operas con empresas del grupo o con tus socios?</label>
+        <select id="pt-pr">
+          <option value="mx" selected>Sí, en México</option>
+          <option value="ext">Sí, también en el extranjero</option>
+          <option value="no">No</option>
         </select>
       </div>
       <div class="calc-out">
-        <div class="k">Valor estimado de la empresa</div>
-        <div class="v" id="rango">$36.0M – $52.0M</div>
-        <div class="mult" id="mult">Múltiplo aplicado: 4.5x – 6.5x EBITDA</div>
+        <div class="k">Resultado</div>
+        <div class="v txt" id="pt-v">Necesitas estudio de precios de transferencia</div>
+        <div class="mult" id="pt-d">Art. 76, fr. IX y XII LISR · más la informativa del 15 de mayo</div>
       </div>
       <div class="calc-foot">
-        <small>Estimación preliminar. No sustituye una valuación formal.</small>
-        <a href="#contacto" class="btn btn-oro">Análisis completo</a>
+        <small>Orientativo. El diagnóstico completo revisa tus operaciones y te da el precio.</small>
+        <a href="herramientas/precios-de-transferencia.html?ing=2" class="btn btn-oro" id="pt-go">Diagnóstico completo</a>
       </div>
     </div>
   </div>
@@ -696,28 +700,17 @@
   toggle.addEventListener('click',()=>{const o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o)});
   menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded',false)}));
 
-  // Calculadora de valuación
-  const ebitda=document.getElementById('ebitda'), sector=document.getElementById('sector'),
-        rango=document.getElementById('rango'), mult=document.getElementById('mult');
-  const fmt=n=>{
-    if(n>=1e9) return '$'+(n/1e9).toFixed(1)+'B';
-    if(n>=1e6) return '$'+(n/1e6).toFixed(1)+'M';
-    if(n>=1e3) return '$'+(n/1e3).toFixed(0)+'k';
-    return '$'+Math.round(n);
-  };
-  function calc(){
-    const val=parseFloat(ebitda.value.replace(/[^0-9.]/g,''))||0;
-    const [lo,hi]=sector.value.split(',').map(Number);
-    rango.textContent=fmt(val*lo)+' – '+fmt(val*hi);
-    mult.textContent='Múltiplo aplicado: '+lo.toFixed(1)+'x – '+hi.toFixed(1)+'x EBITDA';
+  // Revisión rápida de precios de transferencia
+  const ptIng=document.getElementById('pt-ing'), ptPr=document.getElementById('pt-pr'),
+        ptV=document.getElementById('pt-v'), ptD=document.getElementById('pt-d'), ptGo=document.getElementById('pt-go');
+  function ptCalc(){
+    const ing=+ptIng.value, pr=ptPr.value;
+    if(pr==='no'){ptV.textContent='No te aplica';ptD.textContent='Sin operaciones con partes relacionadas no hay obligación';}
+    else if(ing>=2){ptV.textContent='Necesitas estudio de precios de transferencia';ptD.textContent='Art. 76, fr. IX y XII LISR · más la informativa del 15 de mayo';}
+    else{ptV.textContent='No obligado al estudio, pero sí a pactar a mercado';ptD.textContent='Art. 76, fr. IX 2º párr. y fr. XII LISR'+(pr==='ext'?' · revisa regímenes preferentes':'');}
+    ptGo.href='herramientas/precios-de-transferencia.html?ing='+ing;
   }
-  ebitda.addEventListener('input',()=>{
-    let v=ebitda.value.replace(/[^0-9]/g,'');
-    ebitda.value=v?Number(v).toLocaleString('en-US'):'';
-    calc();
-  });
-  sector.addEventListener('change',calc);
-  calc();
+  ptIng.addEventListener('change',ptCalc); ptPr.addEventListener('change',ptCalc); ptCalc();
 
   // Newsletter (conectar endpoint real de Formspree)
   const nf=document.getElementById('newsForm'), nm=document.getElementById('newsMsg');
