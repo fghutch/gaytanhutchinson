@@ -29,6 +29,14 @@ window.TOOLS = [
     ready: true
   },
   {
+    slug: "rangos-comparables",
+    type: "calculadora",
+    title: "Rangos de comparables por giro",
+    description: "Rango intercuartil de MCT, margen de operación o Berry por código SIC, con datos públicos de la SEC.",
+    cta: "Consultar rangos",
+    ready: true
+  },
+  {
     slug: "valuacion-multiplos",
     type: "calculadora",
     title: "Valuación por múltiplos de EBITDA",
