@@ -300,6 +300,7 @@
   </div>
 </footer>
 
+<script src="cotizacion/cotizacion-pt.js"></script>
 <script>
   var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
   toggle.addEventListener('click',function(){var o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
@@ -396,6 +397,7 @@
       +'<h2 class="paso" style="font-size:1.25rem">Recibe el estudio de muestra y contrata</h2><p class="sub2">Déjanos tus datos para ver un estudio de muestra completo y enviarnos tu solicitud.</p>'
       +'<div class="contact"><div class="field"><label for="c-nombre">Nombre</label><input class="t" type="text" id="c-nombre" autocomplete="name"></div><div class="field"><label for="c-correo">Correo</label><input class="t" type="email" id="c-correo" autocomplete="email"></div><div class="field"><label for="c-tel">Teléfono</label><input class="t" type="tel" id="c-tel" autocomplete="tel"></div></div>'
       +'<div class="muestra"><div><b>Estudio de muestra</b><p>12 páginas con una empresa ficticia: análisis funcional, búsqueda de comparables, rango intercuartil y conclusión.</p></div><span class="lock" id="lock">Escribe tu nombre y correo para verlo</span><a class="btn btn-azul" id="pdf" href="'+CONFIG.muestraPDF+'" target="_blank" rel="noopener" hidden>Ver estudio de muestra (PDF)</a></div>'
+      +(q.total?'<div class="muestra"><div><b>Tu cotización en PDF</b><p>Propuesta formal a nombre de tu empresa: alcance, entregables, honorarios y forma de pago.</p></div><span class="lock" id="lock2">Escribe tu nombre y correo para descargarla</span><button type="button" class="btn btn-oro" id="cotpdf" hidden>Descargar cotización (PDF)</button></div>':'<p class="hint">Tus operaciones requieren cotización a la medida; envíanos la solicitud y te la mandamos el mismo día.</p>')
       +'<div class="cta-row"><a class="btn btn-oro" id="wa" href="#" target="_blank" rel="noopener">Enviar solicitud por WhatsApp</a><button type="button" class="btn btn-linea" id="copy">Copiar resumen</button><span class="toast" id="toast"></span></div>'
       +'<p class="hint" style="margin-top:12px">También puedes escribirnos a <span class="sel-txt">'+CONFIG.email+'</span> o al WhatsApp <span class="sel-txt">'+CONFIG.whatsappLabel+'</span>.</p>'
       +'<p class="fine">Diagnóstico orientativo con base en tus respuestas; no constituye una opinión fiscal. Las obligaciones y montos se confirman con tu información financiera. Fundamento: LISR arts. 76, 76-A, 179 y 180; RLISR art. 302; Guías de Precios de Transferencia de la OCDE (2022).</p>';
@@ -404,13 +406,23 @@
     function upd(){
       var c=contacto(), ok=c.nombre.trim()&&okMail(c.correo.trim());
       $("#pdf").hidden=!ok; $("#lock").hidden=!!ok;
+      if($("#cotpdf")){$("#cotpdf").hidden=!ok; $("#lock2").hidden=!!ok;}
       $("#wa").href="https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(resumen(state(),quote(state()),c));
     }
     ["#c-nombre","#c-correo","#c-tel"].forEach(function(id){$(id).addEventListener("input",upd);});
-    $("#pdf").addEventListener("click",function(){
+    function registrar(){
       if(sent||CONFIG.formspree.indexOf("TU_ID_AQUI")>-1) return; sent=true;
       var c=contacto(), fd=new FormData(); fd.append("origen","Diagnóstico precios de transferencia"); fd.append("nombre",c.nombre); fd.append("email",c.correo); fd.append("telefono",c.tel); fd.append("resumen",resumen(state(),quote(state()),c));
       try{fetch(CONFIG.formspree,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).catch(function(){});}catch(e){}
+    }
+    $("#pdf").addEventListener("click",registrar);
+    if($("#cotpdf")) $("#cotpdf").addEventListener("click",function(){
+      var b=$("#cotpdf"), c=contacto(), st=state(), qq=quote(st); registrar();
+      b.disabled=true; b.textContent="Generando cotización…";
+      window.generarCotizacionPT({empresa:st.razon, giro:st.giro, nombre:c.nombre, correo:c.correo, tel:c.tel, plazoDias:CONFIG.plazoDias,
+        ops:st.ops.map(function(o){return {id:o.id,nombre:o.nombre,largo:o.largo,base:o.base,montoTxt:o.monto!==""?MONTOS[o.monto]:""};}), quote:qq})
+      .then(function(folio){b.textContent="Cotización descargada · folio "+folio;})
+      .catch(function(){b.disabled=false;b.textContent="Descargar cotización (PDF)";$("#toast").textContent="No se pudo generar el PDF; envíanos la solicitud por WhatsApp.";});
     });
     $("#copy").addEventListener("click",function(){
       var t=resumen(state(),quote(state()),contacto());

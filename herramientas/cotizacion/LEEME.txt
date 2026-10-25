@@ -1,0 +1,4 @@
+Archivos de la cotización en PDF de precios de transferencia.
+- cotizacion-pt.js: arma el PDF en el navegador. Textos y condiciones (anticipo, tarifa por hora, vigencia) al inicio, en CONDICIONES.
+- portada.jpg, membrete.jpg, firma.jpg, paginas-firma.pdf: plantilla de Gaytán Hutchinson (sin datos de clientes).
+- pdf-lib.min.js (MIT), fontkit.umd.min.js (MIT), DMSans-*.ttf (SIL Open Font License).
