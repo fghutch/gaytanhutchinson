@@ -6,9 +6,6 @@ on:
   schedule:
     - cron: "17 11 * * 1"
   workflow_dispatch:
-  push:  # TEMPORAL: prueba en la rama
-    branches: [rangos-comparables]
-    paths: [scripts/comparables_edgar.py, .github/workflows/comparables-edgar.yml]
 
 permissions:
   contents: write
@@ -37,5 +34,6 @@ jobs:
             echo "Sin cambios"
           else
             git commit -m "Actualizar comparables EDGAR ($(date -u +%F))"
+            git pull --rebase -q origin "${GITHUB_REF_NAME}"
             git push
           fi
