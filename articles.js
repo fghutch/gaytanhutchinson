@@ -10,7 +10,7 @@ window.ARTICLES = [
     excerpt: "Desde 2027, las empresas con ingresos de más de 50 millones difieren parte de sus deducciones y solo amortizan pérdidas hasta el 50% de la utilidad. Cuatro casos reales, cuánto ISR adicional implica y cómo controlar los nuevos saldos.",
     category: "Fiscal",
     date: "2026-11-06",
-    minutes: 9
+    minutes: 10
   },
      {
     slug: "reforma-lfpca-2026",
