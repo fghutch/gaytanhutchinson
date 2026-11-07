@@ -4,6 +4,14 @@
    Campos: slug | title | excerpt | category | date "AAAA-MM-DD" | minutes
    ============================================================ */
 window.ARTICLES = [
+  {
+    slug: "reforma-isr-2027-deducciones-perdidas",
+    title: "Reforma ISR 2027: cómo manejar deducciones diferidas y pérdidas fiscales",
+    excerpt: "Desde 2027, las empresas con ingresos de más de 50 millones difieren parte de sus deducciones y solo amortizan pérdidas hasta el 50% de la utilidad. Cuatro casos reales, cuánto ISR adicional implica y cómo controlar los nuevos saldos.",
+    category: "Fiscal",
+    date: "2026-11-06",
+    minutes: 9
+  },
      {
     slug: "reforma-lfpca-2026",
     title: "Los cambios en la LFPCA para 2026: plazos más cortos y justicia digital",
