@@ -5,6 +5,14 @@
    ============================================================ */
 window.ARTICLES = [
   {
+    slug: "transferencias-virtuales-v5-tres-iva",
+    title: "Transferencias virtuales V5: tres IVA, cuatro momentos",
+    excerpt: "La Corte discute el criterio del SAT sobre la retención de IVA en maquiladoras. En una V5 hay tres IVA que casi nunca caen en el mismo mes, y el costo real está en la caja.",
+    category: "Fiscal",
+    date: "2026-11-10",
+    minutes: 6
+  },
+  {
     slug: "reforma-isr-2027-deducciones-perdidas",
     title: "Reforma ISR 2027: cómo manejar deducciones diferidas y pérdidas fiscales",
     excerpt: "Desde 2027, las empresas con ingresos de más de 50 millones difieren parte de sus deducciones y solo amortizan pérdidas hasta el 50% de la utilidad. Cuatro casos reales, cuánto ISR adicional implica y cómo controlar los nuevos saldos.",
