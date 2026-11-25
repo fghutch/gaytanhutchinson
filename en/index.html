@@ -109,6 +109,32 @@
   .band .steps li{background:#fff;border:1px solid var(--linea);border-radius:4px;padding:12px 16px;font-size:.94rem;display:flex;gap:12px}
   .band .steps b{font-family:var(--mono);color:var(--laton);font-weight:600}
 
+
+  /* CASES */
+  .cases{background:var(--papel);border-top:1px solid var(--linea)}
+  .case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .case{background:#fff;border:1px solid var(--linea);border-radius:6px;padding:30px 28px;display:flex;flex-direction:column}
+  .case .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--laton)}
+  .case h3{font-size:1.4rem;margin:10px 0 12px}
+  .case p{font-size:.95rem;color:#3a404c;line-height:1.6}
+  .case .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--marca);margin:18px 0 8px}
+  .case ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .case li{font-size:.93rem;color:#3a404c;padding-left:18px;position:relative}
+  .case li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border:1px solid var(--marca);transform:rotate(45deg)}
+  .case .out{margin-top:18px;padding-top:14px;border-top:1px solid var(--linea);font-size:.93rem}
+  .case.feat{grid-column:1/-1;background:var(--marca-hondo);border-color:var(--marca-hondo);color:#fff}
+  .case.feat .tag{color:var(--laton-claro)}
+  .case.feat h3{color:#fff;font-size:1.7rem}
+  .case.feat p,.case.feat li{color:rgba(255,255,255,.8)}
+  .case.feat .lbl{color:var(--laton-claro)}
+  .case.feat li:before{border-color:var(--laton-claro)}
+  .case.feat .out{border-color:var(--linea-clara)}
+  .case.feat .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .cases-note{font-size:.86rem;color:var(--niebla);margin-top:24px}
+  .band.alt{background:#fff;border-top:0}
+  .cpa-line{margin-top:26px;font-size:.95rem;color:var(--niebla)}
+  .cpa-line a{color:var(--marca);font-weight:600}
+
   /* HOW */
   .how{background:var(--marca-hondo);color:#fff}
   .how .sec-head h2{color:#fff}
@@ -191,7 +217,7 @@
   @media(max-width:940px){
     .pk-grid,.net-grid,.why{grid-template-columns:1fr 1fr}
     .how-grid{grid-template-columns:1fr 1fr}
-    .about-grid,.cta-grid,.band .env{grid-template-columns:1fr;gap:40px}
+    .about-grid,.cta-grid,.band .env,.case.feat .cols{grid-template-columns:1fr;gap:40px}
     .nav-links{position:fixed;inset:74px 0 auto 0;background:var(--papel);flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 24px;border-bottom:1px solid var(--linea);transform:translateY(-120%);transition:transform .3s ease;box-shadow:0 20px 40px -20px rgba(0,0,0,.2)}
     .nav-links.open{transform:none}
     .nav-links a{width:100%;padding:14px 0;border-bottom:1px solid var(--linea)}
@@ -203,13 +229,14 @@
   @media(max-width:600px){
     .env{padding:0 20px}
     section{padding:60px 0}
-    .pk-grid,.net-grid,.why,.how-grid{grid-template-columns:1fr}
+    .pk-grid,.net-grid,.why,.how-grid,.case-grid{grid-template-columns:1fr}
     .hero .inner{padding:64px 0 70px}
     .hero{min-height:0}
     .hero .scrim{background:linear-gradient(180deg,rgba(26,39,64,.75),rgba(26,39,64,.94))}
   }
   @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.rv{opacity:1;transform:none;transition:none}}
 </style>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -222,6 +249,7 @@
     </a>
     <nav class="nav-links" id="menu">
       <a href="#packages">Services</a>
+      <a href="#cases">Case studies</a>
       <a href="#how">How it works</a>
       <a href="#about">About</a>
       <a href="#insights">Insights</a>
@@ -247,7 +275,7 @@
       <p class="sub">A boutique legal, tax and accounting firm in Monterrey, dedicated to foreign companies doing business in Mexico. Big-firm experience, one bilingual point of contact, and the agility to get things done.</p>
       <div class="cta">
         <a href="#contact" class="btn btn-oro">Book a free 30-minute call</a>
-        <a href="https://wa.me/528110805792?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20setting%20up%20in%20Mexico" target="_blank" rel="noopener" class="btn btn-fantasma">Message us on WhatsApp</a>
+        <a href="https://wa.me/528110805792?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20doing%20business%20in%20Mexico.%20I%20heard%20about%20you%20through%3A%20" target="_blank" rel="noopener" class="btn btn-fantasma">Message us on WhatsApp</a>
       </div>
       <div class="hero-trust">
         <div><div class="n">Legal · Tax · Accounting</div><div class="l">One team, one point of contact</div></div>
@@ -370,6 +398,95 @@
   </div>
 </div>
 
+<div class="band alt">
+  <div class="env">
+    <div class="rv">
+      <span class="eyebrow">Selling to Mexican corporations?</span>
+      <h2>Get approved as a supplier — and stay approved.</h2>
+      <p>Large Mexican companies require strict tax compliance from their suppliers. A single negative compliance status can freeze your payments or take you off the vendor list. We set you up, get you through supplier onboarding and keep you compliant every month.</p>
+    </div>
+    <ol class="steps rv">
+      <li><b>1</b>Mexican tax setup for your sales</li>
+      <li><b>2</b>Supplier onboarding file for each buyer</li>
+      <li><b>3</b>Positive SAT and IMSS compliance opinions</li>
+      <li><b>4</b>CFDI e-invoicing that buyers accept</li>
+      <li><b>5</b>Monthly monitoring so your vendor status stays active</li>
+    </ol>
+  </div>
+</div>
+
+<section class="cases" id="cases">
+  <div class="env">
+    <div class="sec-head rv">
+      <span class="eyebrow">Case studies</span>
+      <h2>From setup to exit, for companies from the US, Europe and Asia</h2>
+      <p>A sample of recent work for foreign companies and investors in Mexico.</p>
+    </div>
+    <div class="case-grid">
+      <article class="case feat rv">
+        <span class="tag">United States · Nasdaq-listed group · Recurring client</span>
+        <h3>Restructuring the Mexican holdings, then due diligence on its acquisitions</h3>
+        <div class="cols">
+          <div>
+            <p>A Nasdaq-listed US group with operations in Mexico needed to simplify its corporate structure. Later, as it began buying Mexican companies, it needed someone to evaluate each target from the Mexican side.</p>
+            <p class="out">What started as a restructuring became an ongoing relationship across the group’s deals in Mexico.</p>
+          </div>
+          <div>
+            <div class="lbl" style="margin-top:0">What we did</div>
+            <ul>
+              <li>Tax side of the conversion of the group’s LLC into a Mexican S. de R.L. de C.V.</li>
+              <li>Tax side of the subsequent merger of two holding companies</li>
+              <li>Due diligence on the group’s acquisitions of Mexican companies</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <article class="case rv">
+        <span class="tag">United States · NYSE-listed company</span>
+        <h3>Soft landing: starting operations in Mexico</h3>
+        <p>A NYSE-listed US company opening its operation in Mexico needed a local advisor who could work with its corporate team.</p>
+        <div class="lbl">What we did</div>
+        <ul>
+          <li>Tax and financial lead for the start of operations in Mexico</li>
+          <li>Working alongside the company’s corporate finance team</li>
+        </ul>
+      </article>
+      <article class="case rv">
+        <span class="tag">United States · Small and mid-sized companies</span>
+        <h3>Becoming — and staying — an approved supplier to Mexican listed companies</h3>
+        <p>US companies importing goods from Asia, Europe and the US to sell to Mexican publicly listed corporations.</p>
+        <div class="lbl">What we did</div>
+        <ul>
+          <li>Registration as suppliers with Mexican listed buyers</li>
+          <li>Ongoing tax compliance so they remain active, approved vendors</li>
+        </ul>
+      </article>
+      <article class="case rv">
+        <span class="tag">Germany · Entrepreneur</span>
+        <h3>Exit from a Mexican company held with local partners</h3>
+        <p>A German entrepreneur separating from his Mexican partners needed a fair, defensible basis for splitting the company’s equity.</p>
+        <div class="lbl">What we did</div>
+        <ul>
+          <li>Valuation of the shares as the basis for the equity split</li>
+          <li>His tax compliance in Mexico</li>
+        </ul>
+      </article>
+      <article class="case rv">
+        <span class="tag">China · Manufacturer</span>
+        <h3>Plant start-up, from incorporation to first imports</h3>
+        <p>A Chinese manufacturer opening its plant in Mexico needed to be operating legally without delaying its start date.</p>
+        <div class="lbl">What we did</div>
+        <ul>
+          <li>Incorporation of the Mexican entity</li>
+          <li>SAT and IMSS registrations</li>
+          <li>Coordination with customs brokers</li>
+        </ul>
+      </article>
+    </div>
+    <p class="cases-note rv">Client names are withheld for confidentiality.</p>
+  </div>
+</section>
+
 <section class="how" id="how">
   <div class="env">
     <div class="sec-head rv">
@@ -460,15 +577,17 @@
         <li>Where you are today: evaluating, signing a lease, or already operating</li>
         <li>What you need first: entity, IMMEX, hiring, contracts or monthly compliance</li>
         <li>Your target start date</li>
+        <li>How you heard about us</li>
       </ul>
+      <p class="cpa-line">Are you a US CPA or advisory firm with clients in Mexico? <a href="/en/cpa-firms.html">See how we work with firms →</a></p>
     </div>
     <div class="contact-card rv">
       <h3>Direct contact</h3>
-      <div class="cinfo"><div><div class="lbl">Email</div><a class="val" href="mailto:francisco@gaytanhutchinson.com?subject=Setting%20up%20in%20Mexico">francisco@gaytanhutchinson.com</a></div></div>
-      <div class="cinfo"><div><div class="lbl">WhatsApp</div><a class="val" href="https://wa.me/528110805792" target="_blank" rel="noopener">+52 81 1080 5792</a></div></div>
+      <div class="cinfo"><div><div class="lbl">Email</div><a class="val" href="mailto:francisco@gaytanhutchinson.com?subject=Setting%20up%20in%20Mexico&amp;body=Company%3A%0AWhere%20we%20are%20today%20%28evaluating%20/%20signing%20a%20lease%20/%20operating%29%3A%0AWhat%20we%20need%20first%3A%0ATarget%20start%20date%3A%0AHow%20did%20you%20hear%20about%20us%3A%0A">francisco@gaytanhutchinson.com</a></div></div>
+      <div class="cinfo"><div><div class="lbl">WhatsApp</div><a class="val" href="https://wa.me/528110805792?text=Hello%2C%20I%27d%20like%20to%20talk%20about%20doing%20business%20in%20Mexico.%20I%20heard%20about%20you%20through%3A%20" target="_blank" rel="noopener">+52 81 1080 5792</a></div></div>
       <div class="cinfo"><div><div class="lbl">Office</div><span class="val">Av. Lázaro Cárdenas 506, Antigua Hacienda San Agustín, 64752 Monterrey, N.L., Mexico</span></div></div>
       <div class="cinfo"><div><div class="lbl">Hours</div><span class="val">Mon–Fri, 9:00–17:00 Monterrey time (UTC−6). Calls arranged for US and Canadian time zones.</span></div></div>
-      <a class="btn btn-oro" href="mailto:francisco@gaytanhutchinson.com?subject=Discovery%20call%20request">Request a discovery call</a>
+      <a class="btn btn-oro" href="mailto:francisco@gaytanhutchinson.com?subject=Discovery%20call%20request&amp;body=Company%3A%0AWhere%20we%20are%20today%20%28evaluating%20/%20signing%20a%20lease%20/%20operating%29%3A%0AWhat%20we%20need%20first%3A%0ATarget%20start%20date%3A%0AHow%20did%20you%20hear%20about%20us%3A%0A">Request a discovery call</a>
     </div>
   </div>
 </section>
@@ -484,18 +603,19 @@
       </div>
       <div class="foot-links">
         <a href="#packages">Services</a>
+        <a href="#cases">Case studies</a>
         <a href="#how">How it works</a>
         <a href="#about">About</a>
-        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
+        <a href="/en/cpa-firms.html">For CPA firms</a>
         <a href="/" hreflang="es-MX" lang="es">Español</a>
       </div>
     </div>
     <div class="foot-bot">
       <div>© 2026 Gaytán Hutchinson. All rights reserved.</div>
       <div style="display:flex;gap:22px;flex-wrap:wrap">
-        <a href="/privacidad.html" lang="es">Privacy notice (Spanish)</a>
-        <a href="/avisolegal.html" lang="es">Legal notice (Spanish)</a>
+        <a href="/en/privacy.html">Privacy notice</a>
+        <a href="/en/legal.html">Legal notice</a>
       </div>
     </div>
   </div>
