@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /plantilla-articulo.html
+Disallow: /plantilla-calculadora.html
+Disallow: /articulos/plantilla-articulo.html
+Disallow: /herramientas/plantilla-calculadora.html
+
+Sitemap: https://www.gaytanhutchinson.com/sitemap.xml
