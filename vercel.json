@@ -1,3 +1,50 @@
 {
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/cuanto-vale-tu-empresa.html",
+      "destination": "/articulos/cuanto-vale-tu-empresa.html",
+      "permanent": true
+    },
+    {
+      "source": "/fideicomiso-proteccion-patrimonial.html",
+      "destination": "/articulos/fideicomiso-proteccion-patrimonial.html",
+      "permanent": true
+    },
+    {
+      "source": "/problemas-vender-empresa.html",
+      "destination": "/articulos/problemas-vender-empresa.html",
+      "permanent": true
+    },
+    {
+      "source": "/protocolo-familiar.html",
+      "destination": "/articulos/protocolo-familiar.html",
+      "permanent": true
+    },
+    {
+      "source": "/retos-compraventa-empresas.html",
+      "destination": "/articulos/retos-compraventa-empresas.html",
+      "permanent": true
+    },
+    {
+      "source": "/valuacion-intangibles-riesgos-fiscales.html",
+      "destination": "/articulos/valuacion-intangibles-riesgos-fiscales.html",
+      "permanent": true
+    },
+    {
+      "source": "/valuacion-intangibles.html",
+      "destination": "/herramientas/valuacion-intangibles.html",
+      "permanent": true
+    },
+    {
+      "source": "/valuacion-maquinaria.html",
+      "destination": "/herramientas/valuacion-maquinaria.html",
+      "permanent": true
+    },
+    {
+      "source": "/valuacion-multiplos.html",
+      "destination": "/herramientas/valuacion-multiplos.html",
+      "permanent": true
+    }
+  ]
 }
